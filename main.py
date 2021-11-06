@@ -4,13 +4,24 @@ window = tkinter.Tk() #beginning of gui loop
 
 window.title('PyCalculator Demo')
 window.geometry('400x500')
+window['bg'] = '#EBE7E7'
 
 #frame where text would be inputted
-textFrame = tkinter.Frame(window, height = 30, width = 300, borderwidth = 5, bg = 'blue')
+textFrame = tkinter.Frame(window, height = 30, width = 300, borderwidth = 5, bg = 'red')
 textFrame.pack()
 
+#Input Button
+
+button = tkinter.Entry(window)
+button.pack(pady=30)
+input = button.get()
+
+def hello():
+    msg = "hello"
+    tkinter.Label(tkinter.Tk(), text=button.get()).grid(row=100, column = 0)
+
 #simple buttons
-button_1 = tkinter.Button(window, text = "1")
+button_1 = tkinter.Button(window, text = "1", command=hello)
 button_1.pack()
 
 button_2 = tkinter.Button(window, text = "2")
