@@ -3,57 +3,52 @@ import tkinter
 window = tkinter.Tk() #beginning of gui loop
 
 window.title('PyCalculator Demo')
-window.geometry('295x455')
+window.geometry('400x500')
+window['bg'] = '#EBE7E7'
 
 #frame where text would be inputted
-textFrame = tkinter.Frame(window, height = 50, width = 250, borderwidth = 5, bg = 'gray').place(x = 23, y = 10)
+textFrame = tkinter.Frame(window, height = 30, width = 300, borderwidth = 5, bg = 'red')
+textFrame.pack()
 
-buttonFrames = tkinter.Frame(window, )
+#Input Button
 
-#Number Keypad
-button_1 = tkinter.Button(window, text = "1", height = 4, width = 8).place(x = 10, y = 300)
+button = tkinter.Entry(window)
+button.pack(pady=30)
+input = button.get()
 
-button_2 = tkinter.Button(window, text = "2", height = 4, width = 8).place(x = 80, y = 300)
+def hello():
+    msg = "hello"
+    tkinter.Label(tkinter.Tk(), text=button.get()).grid(row=100, column = 0)
 
-button_3 = tkinter.Button(window, text = "3", height = 4, width = 8).place(x = 150, y = 300)
+#simple buttons
+button_1 = tkinter.Button(window, text = "1", command=hello)
+button_1.pack()
 
-button_4 = tkinter.Button(window, text = "4", height = 4, width = 8).place(x = 10, y = 225)
+button_2 = tkinter.Button(window, text = "2")
+button_2.pack()
 
-button_5 = tkinter.Button(window, text = "5", height = 4, width = 8).place(x = 80, y = 225)
+button_3 = tkinter.Button(window, text = "3")
+button_3.pack()
 
-button_6 = tkinter.Button(window, text = "6", height = 4, width = 8).place(x = 150, y = 225)
+button_4 = tkinter.Button(window, text = "4")
+button_4.pack()
 
-button_7 = tkinter.Button(window, text = "7", height = 4, width = 8).place(x = 10, y = 150)
+button_5 = tkinter.Button(window, text = "5")
+button_5.pack()
 
-button_8 = tkinter.Button(window, text = "8", height = 4, width = 8).place(x = 80, y = 150)
+button_6 = tkinter.Button(window, text = "6")
+button_6.pack()
 
-button_9 = tkinter.Button(window, text = "9", height = 4, width = 8).place(x = 150, y = 150)
+button_7 = tkinter.Button(window, text = "7")
+button_7.pack()
 
-button_0 = tkinter.Button(window, text = "0", height = 4, width = 8).place(x = 80, y = 375)
+button_8 = tkinter.Button(window, text = "8")
+button_8.pack()
 
-button_period = tkinter.Button(window, text = ".", height = 4, width = 8).place(x = 150, y = 375)
+button_9 = tkinter.Button(window, text = "9")
+button_9.pack()
 
-#Operation buttons
-
-buttonAdd = tkinter.Button(window, text = "+", height = 4, width = 8).place(x = 220, y = 300)
-
-buttonSubtract = tkinter.Button(window, text = "-", height = 4, width = 8).place(x = 220, y = 225)
-
-buttonMultiply = tkinter.Button(window, text = "*", height = 4, width = 8).place(x = 220, y = 150)
-
-buttonDivide = tkinter.Button(window, text = "/", height = 4, width = 8).place(x = 220, y = 75)
-
-buttonEqual = tkinter.Button(window, text = "=", height = 4, width = 8).place(x = 220, y = 375)
-
-buttonClear = tkinter.Button(window, text = "Clear", height = 4, width = 8).place(x = 10, y = 375)
-
-buttonDivide = tkinter.Button(window, text = "/", height = 4, width = 8).place(x = 220, y = 75)
-
-buttonSqrt = tkinter.Button(window, text = "√", height = 4, width = 8).place(x = 150, y = 75)
-
-buttonExp = tkinter.Button(window, text = "^", height = 4, width = 8).place(x = 80, y = 75)
-
-buttonGraph = tkinter.Button(window, text = "Graph", height = 4, width = 8).place(x = 10, y = 75)
-
+button_0 = tkinter.Button(window, text = "0")
+button_0.pack()
 
 window.mainloop() #end of loop
