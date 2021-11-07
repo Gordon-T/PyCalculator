@@ -108,7 +108,14 @@ def input_button_divide():
 def input_buttonClear():
     button.delete("0", "end")
 
+global total
+
 total_sum = ""
+
+global counter
+
+counter = 0
+
 total = 0
 
 def calculate():
@@ -118,19 +125,26 @@ def calculate():
     for loopvar in button.get():
         list.append(loopvar)
     for a in list:
-        while a == '1' or a == '2' or a == '3' or a == '4' or a == '5' or a == '6' or a == '7' or a == '8' or a == '9' or a == '0':
+        global total
+        if a == '1' or a == '2' or a == '3' or a == '4' or a == '5' or a == '6' or a == '7' or a == '8' or a == '9' or a == '0':
             global total_sum
             total_sum += a
-            cool = int(total_sum)
-            break
-        else:
-            global total
-            if a == '+':
-                total = total + int(total_sum)
-                total_sum = ""
-    print(total+cool)
+        elif a == '+':
+            total = int(total_sum)
+            total_sum = ""
+        elif a == '-':
+            global counter
+            counter += 1
+            total = (-1 * int(total_sum))
+            total_sum = ""
+    if counter >=1:
+
+        print((-1*total)+(-1*int(total_sum)))           #Subtraction
+    else:
+        print(int(total_sum) + total)                   #Addition
     total_sum = ""
     total = 0
+    counter = 0
 # Number Keypad
 button_1 = tkinter.Button(window, text="1", height=4, width=8, command=input_button1).place(x=10, y=300)
 
