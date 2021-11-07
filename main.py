@@ -10,8 +10,18 @@ textFrame = tkinter.Frame(window, height = 50, width = 250, borderwidth = 5, bg 
 
 buttonFrames = tkinter.Frame(window, )
 
+#Input Button
+
+button = tkinter.Entry(window)
+button.pack(pady=30)
+input = button.get()
+
+def hello():
+    msg = "hello"
+    tkinter.Label(tkinter.Tk(), text=button.get()).grid(row=100, column = 0)
+
 #Number Keypad
-button_1 = tkinter.Button(window, text = "1", height = 4, width = 8).place(x = 10, y = 300)
+button_1 = tkinter.Button(window, text = "1", height = 4, width = 8, command = hello).place(x = 10, y = 300)
 
 button_2 = tkinter.Button(window, text = "2", height = 4, width = 8).place(x = 80, y = 300)
 
