@@ -4,11 +4,11 @@ import operator
 
 window = tkinter.Tk() #beginning of gui loop
 
-window.title('PyCalculator Demo')
+window.title('PyCalculator')
 window.geometry('295x455')
 
 #frame where text would be inputted
-textFrame = tkinter.Frame(window, height = 50, width = 250, borderwidth = 5, bg = 'gray').place(x = 23, y = 10)
+textFrame = tkinter.Frame(window, height = 50, width = 250, borderwidth = 5).place(x = 23, y = 10)
 
 buttonFrames = tkinter.Frame(window)
 
@@ -71,8 +71,41 @@ def input_button0():
     button.insert(count, 0)
     count = count + 1
 
+def input_button_add():
+    global count
+    button.insert(count, '+')
+    count = count + 1
+
+def input_button_subtract():
+    global count
+    button.insert(count, '-')
+    count = count + 1
+
+def input_button_multiply():
+    global count
+    button.insert(count, '*')
+    count = count + 1
+
+def input_button_divide():
+    global count
+    button.insert(count, '/')
+    count = count + 1
+
 def input_buttonClear():
     button.delete("0", "end")
+
+def calculate():
+    operator_dict = {"+": operator.add, "-": operator.sub, '*': operator.mul, '/': operator.truediv}
+    button.get()
+    list = []
+    for loopvar in button.get():
+       if loopvar != '+' or '-' or '*' or '/':
+           list.append(loopvar)
+       else:
+           
+
+
+
 
 #Number Keypad
 button_1 = tkinter.Button(window, text = "1", height = 4, width = 8, command = input_button1).place(x = 10, y = 300)
@@ -99,19 +132,17 @@ button_period = tkinter.Button(window, text = ".", height = 4, width = 8).place(
 
 #Operation buttons
 
-buttonAdd = tkinter.Button(window, text = "+", height = 4, width = 8).place(x = 220, y = 300)
+buttonAdd = tkinter.Button(window, text = "+", height = 4, width = 8, command = input_button_add).place(x = 220, y = 300)
 
-buttonSubtract = tkinter.Button(window, text = "-", height = 4, width = 8).place(x = 220, y = 225)
+buttonSubtract = tkinter.Button(window, text = "-", height = 4, width = 8, command = input_button_subtract).place(x = 220, y = 225)
 
-buttonMultiply = tkinter.Button(window, text = "*", height = 4, width = 8).place(x = 220, y = 150)
+buttonMultiply = tkinter.Button(window, text = "*", height = 4, width = 8, command = input_button_multiply).place(x = 220, y = 150)
 
-buttonDivide = tkinter.Button(window, text = "/", height = 4, width = 8).place(x = 220, y = 75)
+buttonDivide = tkinter.Button(window, text = "/", height = 4, width = 8, command = input_button_divide).place(x = 220, y = 75)
 
-buttonEqual = tkinter.Button(window, text = "=", height = 4, width = 8).place(x = 220, y = 375)
+buttonEqual = tkinter.Button(window, text = "=", height = 4, width = 8, command = calculate).place(x = 220, y = 375)
 
 buttonClear = tkinter.Button(window, text = "Clear", height = 4, width = 8, command = input_buttonClear).place(x = 10, y = 375)
-
-buttonDivide = tkinter.Button(window, text = "/", height = 4, width = 8).place(x = 220, y = 75)
 
 buttonSqrt = tkinter.Button(window, text = "√", height = 4, width = 8).place(x = 150, y = 75)
 
